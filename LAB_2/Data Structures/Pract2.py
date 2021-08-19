@@ -65,7 +65,43 @@ def merge_sort(arr, l, r):
     return array
 
 
+def insertionSort(arr, left, right):
+    for i in range(left + 1, right + 1):
+        j = i
+        while j > left and arr[j] < arr[j - 1]:
+            arr[j], arr[j - 1] = arr[j - 1], arr[j]
+            j -= 1
+
+
+def calcMinRun(n):
+    r = 0
+    while n >= 32:
+        r |= n & 1
+        n >>= 1
+    return n + r
+
+
+def tim_sort(array):
+    arr = list(array)
+    n = len(arr)
+    minRun = calcMinRun(n)
+    for start in range(0, n, minRun):
+        end = min(start + minRun - 1, n - 1)
+        insertionSort(arr, start, end)
+    size = minRun
+    while size < n:
+        for left in range(0, n, 2 * size):
+            mid = min(n - 1, left + size - 1)
+            right = min((left + 2 * size - 1), (n - 1))
+            if mid < right:
+                merge(arr, left, mid, right)
+
+        size = 2 * size
+    return arr
+
+
 if __name__ == '__main__':
     arr = [2, 43, 54, 22, 30, 77]
     print(selection_sort(arr))
     print(merge_sort(arr, 0, len(arr)-1))
+    print(tim_sort(arr))
