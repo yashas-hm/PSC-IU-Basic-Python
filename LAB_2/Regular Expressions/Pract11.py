@@ -10,5 +10,5 @@ def search(data):
 
 
 if __name__ == '__main__':
-    s = 'akter and anomaly akshay'
+    s = 'akter and anomaly akshay abnormal adjective'
     print(search(s))
