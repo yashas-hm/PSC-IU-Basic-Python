@@ -7,7 +7,7 @@ import re
 
 
 def search(data):
-    return re.search('.*\s', str(data)).group()
+    return re.search(r'.*\s', str(data)).group()
 
 
 if __name__ == '__main__':
