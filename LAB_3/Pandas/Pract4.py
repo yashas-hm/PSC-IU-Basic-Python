@@ -28,7 +28,7 @@ def q4(data):
 
 
 def q5(data):
-    print()
+    print(data.describe())
 
 
 if __name__ == '__main__':

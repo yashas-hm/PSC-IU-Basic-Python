@@ -5,7 +5,6 @@ import tkinter as tk
 
 
 def gui(root):
-    root.title("Calculator")
     root.geometry('280x280+500+100')
     root.title('Dropdown')
     root['padx'] = 8
